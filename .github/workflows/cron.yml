@@ -25,10 +25,16 @@ jobs:
       - name: Run Script Two
         run: python update_key_two.py
 
+            # Keep your existing Run Script One and Run Script Two steps above here...
+
+      - name: Run Script Three
+        run: python update_key_three.py
+
       - name: Save Key Updates
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@://github.com"
-          git add key1.txt key2.txt
+          git add key1.txt key2.txt key3.txt
           git diff-index --quiet HEAD || git commit -m "Automated daily key updates"
           git push
+
